@@ -56,7 +56,7 @@ namespace Application.Service
 
             movimiento.NroCuenta = entity.NroCuenta ?? movimiento.NroCuenta;
             movimiento.Tipo = entity.Tipo ?? movimiento.Tipo;
-            movimiento.SaldoInicial = entity.SaldoInicial ?? movimiento.SaldoInicial;
+            movimiento.SaldoInicial = movimiento.SaldoInicial;
             movimiento.Estado = entity.Estado;
 
             return _repository.Update(movimiento);

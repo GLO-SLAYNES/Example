@@ -54,8 +54,8 @@ namespace Application.Service
                 throw new NullReferenceException(nameof(movimiento));
             }
 
-            movimiento.Saldo = entity.Saldo ?? movimiento.Saldo;
-            movimiento.Valor = entity.Valor ?? movimiento.Valor;
+            movimiento.Saldo = movimiento.Saldo;
+            movimiento.Valor = movimiento.Valor;
             movimiento.Fecha = entity.Fecha ?? movimiento.Fecha;
             movimiento.Tipo = entity.Tipo ?? movimiento.Tipo;
 
