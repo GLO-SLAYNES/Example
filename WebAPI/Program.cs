@@ -15,13 +15,13 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IRepository<Persona>, PersonaRepository>();
 builder.Services.AddScoped<IRepository<Cliente>, ClienteRepository>();
-builder.Services.AddScoped<IRepository<Movimiento>, MovimientoRepository>();
-builder.Services.AddScoped<IRepository<Cuenta>, CuentaRepository>();
+builder.Services.AddScoped<IMovimientoRepository, MovimientoRepository>();
+builder.Services.AddScoped<ICuentaRepository, CuentaRepository>();
 
 builder.Services.AddScoped<IService<Persona>, PersonaService>();
 builder.Services.AddScoped<IService<Cliente>, ClienteService>();
-builder.Services.AddScoped<IService<Movimiento>, MovimientoService>();
-builder.Services.AddScoped<IService<Cuenta>, CuentaService>();
+builder.Services.AddScoped<IMovimientoService, MovimientoService>();
+builder.Services.AddScoped<ICuentaService, CuentaService>();
 
 var app = builder.Build();
 

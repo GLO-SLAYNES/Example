@@ -3,7 +3,7 @@ using Domain.Persistence;
 
 namespace InfrastructureInMemory.Persistence
 {
-    public class CuentaRepository : IRepository<Cuenta>
+    public class CuentaRepository : ICuentaRepository
     {
         internal static List<Cuenta> _cuentas = new();
         private static int _id = 0;
@@ -23,6 +23,11 @@ namespace InfrastructureInMemory.Persistence
         public Cuenta? GetById(int id)
         {
             return _cuentas.FirstOrDefault(x => x.Id == id);
+        }
+
+        public Cuenta? GetByNroCuenta(string nroCuenta)
+        {
+            return _cuentas.FirstOrDefault(x => x.NroCuenta == nroCuenta);
         }
 
         public Cuenta? Save(Cuenta entity)

@@ -3,7 +3,7 @@ using Domain.Persistence;
 
 namespace InfrastructureInMemory.Persistence
 {
-    public class MovimientoRepository : IRepository<Movimiento>
+    public class MovimientoRepository : IMovimientoRepository
     {
         private static List<Movimiento> _movimientos = new();
         private static int _id = 0;
@@ -23,6 +23,11 @@ namespace InfrastructureInMemory.Persistence
         public Movimiento? GetById(int id)
         {
             return _movimientos.FirstOrDefault(x => x.Id == id);
+        }
+
+        public IEnumerable<Movimiento> GetMovimientoByDateAndClientId(DateTime In, DateTime Out, int clientId)
+        {
+            return _movimientos.Where(x => x.Fecha >= In && x.Fecha <= Out && x.Cuenta.ClienteId == clientId);
         }
 
         public Movimiento? Save(Movimiento entity)
@@ -45,7 +50,6 @@ namespace InfrastructureInMemory.Persistence
                 movimiento.Tipo = entity.Tipo;
                 movimiento.Saldo = entity.Saldo;
                 movimiento.Valor = entity.Valor;
-                movimiento.Entidad = entity.Entidad;
             }
 
             return movimiento;

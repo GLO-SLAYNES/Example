@@ -4,11 +4,11 @@ using Domain.Service;
 
 namespace Application.Service
 {
-    public class CuentaService : IService<Cuenta>
+    public class CuentaService : ICuentaService
     {
-        private IRepository<Cuenta> _repository;
+        private ICuentaRepository _repository;
 
-        public CuentaService(IRepository<Cuenta> repository)
+        public CuentaService(ICuentaRepository repository)
         {
             _repository = repository;
         }
@@ -70,6 +70,11 @@ namespace Application.Service
             }
 
             _repository.Delete(id);
+        }
+
+        public Cuenta? GetCuentaByNroCuenta(string nroCuenta)
+        {
+            return _repository.GetByNroCuenta(nroCuenta);
         }
     }
 }

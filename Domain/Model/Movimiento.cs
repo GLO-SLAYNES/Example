@@ -3,7 +3,6 @@
     public class Movimiento
     {
         public int Id { get; set; }
-        public string Entidad { get; set; }
         public DateTime? Fecha { get; set; }
         public string Tipo { get; set; }
         public decimal Valor { get; set; }

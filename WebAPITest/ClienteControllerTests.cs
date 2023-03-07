@@ -3,7 +3,6 @@ using Domain.Model;
 using Domain.Persistence;
 using Microsoft.Extensions.Logging;
 using Moq;
-using System.Reflection;
 using WebAPI.Controllers;
 using WebAPI.Model;
 
